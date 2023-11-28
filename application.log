@@ -1,0 +1,24 @@
+2023-11-24 14:52:52 - INFO - Application started.
+2023-11-24 14:52:52 - WARNING - This is a warning.
+2023-11-24 14:52:52 - ERROR - An error occurred.
+2023-11-24 14:52:52 - ERROR - Caught an exception: An example exception.
+Traceback (most recent call last):
+  File "/Users/notechu/Project/design/BlobAzure/main.py", line 13, in main
+    raise ValueError("An example exception.")
+ValueError: An example exception.
+2023-11-24 14:52:55 - INFO - Application started.
+2023-11-24 14:52:55 - WARNING - This is a warning.
+2023-11-24 14:52:55 - ERROR - An error occurred.
+2023-11-24 14:52:55 - ERROR - Caught an exception: An example exception.
+Traceback (most recent call last):
+  File "/Users/notechu/Project/design/BlobAzure/main.py", line 13, in main
+    raise ValueError("An example exception.")
+ValueError: An example exception.
+2023-11-24 14:52:57 - INFO - Application started.
+2023-11-24 14:52:57 - WARNING - This is a warning.
+2023-11-24 14:52:57 - ERROR - An error occurred.
+2023-11-24 14:52:57 - ERROR - Caught an exception: An example exception.
+Traceback (most recent call last):
+  File "/Users/notechu/Project/design/BlobAzure/main.py", line 13, in main
+    raise ValueError("An example exception.")
+ValueError: An example exception.
