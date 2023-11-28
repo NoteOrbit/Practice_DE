@@ -10,7 +10,7 @@ class Base(DeclarativeBase):
 class Employee(Base):
 
 
-        """
+    """
     Represents the 'Employee' table in the database.
 
     Attributes:
