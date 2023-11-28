@@ -8,6 +8,24 @@ class Base(DeclarativeBase):
 
 
 class Transaction(Base):
+
+
+        """
+    Represents the 'Transaction' table in the database.
+
+    Attributes:
+        Transaction_ID (int): Primary key for the transaction.
+        Customer_ID (int): ID of the customer associated with the transaction.
+        Product_ID (int): ID of the product associated with the transaction.
+        Product_Category (str): Category of the product (maximum length 50 characters).
+        Quantity (int): Quantity of the product in the transaction.
+        Unit_Price (int): Unit price of the product.
+        Sales_Amount (int): Total sales amount for the transaction.
+        Transaction_Date (datetime.date): Date of the transaction.
+        Total_price (int): Total price for the transaction.
+    """
+
+    
     __tablename__ = "Transaction"
     Transaction_ID = mapped_column(Integer,primary_key=True)
     Customer_ID = mapped_column(Integer)
