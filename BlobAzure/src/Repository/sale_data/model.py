@@ -24,7 +24,7 @@ class Transaction(Base):
         Transaction_Date (datetime.date): Date of the transaction.
         Total_price (int): Total price for the transaction.
     """
-    __tablename__ = "Transaction"
+    __tablename__ = "transactions"
     Transaction_ID = mapped_column(Integer,primary_key=True)
     Customer_ID = mapped_column(Integer)
     Product_ID = mapped_column(Integer)

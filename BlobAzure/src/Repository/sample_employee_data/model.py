@@ -25,7 +25,7 @@ class Employee(Base):
     """
 
     
-    __tablename__ = "Employee"
+    __tablename__ = "employees"
     employee_id = mapped_column(Integer,primary_key=True)
     first_name = mapped_column(String(50), nullable=False)
     last_name = mapped_column(String(50), nullable=False)

@@ -20,8 +20,8 @@ def init_db():
         db_url = f"postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}"
         engine = create_engine(db_url)
 
-        # CustomerBase.metadata.create_all(bind=engine)
-        # TransactionBase.metadata.create_all(bind=engine)
+        CustomerBase.metadata.create_all(bind=engine)
+        TransactionBase.metadata.create_all(bind=engine)
 
         Session = sessionmaker(bind=engine)
         session = Session()
