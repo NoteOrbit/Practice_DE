@@ -22,29 +22,63 @@
         "allow-credentials": false
       },
       "authentication": {
-        "provider": "StaticWebApps"
+        "provider": "Simulator"
       },
       "mode": "development"
     }
   },
+  "roles": {
+    "admin": {
+      "permissions": [
+        {
+          "actions": ["*"],
+          "entity": "Transaction"
+        },
+        {
+          "actions": ["*"],
+          "entity": "Employee"
+        }
+      ]
+    },
+    "user": {
+      "permissions": [
+        {
+          "actions": ["read"],
+          "entity": "Transaction"
+        },
+        {
+          "actions": ["read"],
+          "entity": "Employee"
+        }
+      ]
+    }
+  },
   "entities": {
     "Transaction": {
-      "source": "transactions",      
+      "source": "transactions",
       "exclude-fields": ["_sa_instance_state"],
       "permissions": [
         {
           "actions": ["*"],
-          "role": "anonymous"
+          "role": "admin"
+        },
+        {
+          "actions": ["read"],
+          "role": "user"
         }
       ]
     },
     "Employee": {
-      "source": "employees",      
+      "source": "employees",
       "exclude-fields": ["_sa_instance_state"],
       "permissions": [
         {
           "actions": ["*"],
-          "role": "anonymous"
+          "role": "admin"
+        },
+        {
+          "actions": ["read"],
+          "role": "user"
         }
       ]
     }

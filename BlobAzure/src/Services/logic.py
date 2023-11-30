@@ -9,7 +9,7 @@ class ETLService:
 
     def transforms_load(self):
         
-        db_session, transaction_repository,employee_repository = init_db()
+        transaction_repository,employee_repository = init_db()
 
         try:
             extracted_data = Load_data()
@@ -19,16 +19,17 @@ class ETLService:
                     df = create_dataframe(item['file_data'], item['tag'])
                     df2 = df.copy()
                     df2['Total_price'] = df2['Sales_Amount']
-                    show_dataframe(item['tag'], item['file_name'], df2)
+                    # show_dataframe(item['tag'], item['file_name'], df2) 
                     
             
                     transactions = df2.to_dict(orient='records')
+                    # print(transactions)
                     for transaction_data in transactions:
                         transaction_repository.create_transaction(transaction_data)
 
                 else:
                     df = create_dataframe(item['file_data'], item['tag'])
-                    show_dataframe(item['tag'], item['file_name'], df)
+                    # show_dataframe(item['tag'], item['file_name'], df)
                     transactions = df.to_dict(orient='records')
                     for transaction_data in transactions:
                         employee_repository.create_transaction(transaction_data)
@@ -45,9 +46,9 @@ class ETLService:
 
         except Exception as e:
             print(f"An error occurred: {str(e)}")
-        finally:
+        # finally:
             
-            db_session.close()
+        #     db_session.close()
 
         # return extracted_data
     

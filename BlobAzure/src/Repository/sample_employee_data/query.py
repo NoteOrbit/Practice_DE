@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from .model import *
+from .Employee import *
 import pandas as pd
 from BlobAzure.src.utils.common.etl_utils import show_dataframe
 
@@ -11,11 +11,15 @@ class EmployeeRepository:
         Base.metadata.create_all(engine)
         self.Session = sessionmaker(bind=engine)
 
-    def create_transaction(self, transaction_data):
-        new_transaction = Employee(**transaction_data)
+    def create_transaction(self, args):
+        new_transaction = Employee(**args)
         with self.Session() as session:
             session.add(new_transaction)
-            session.commit()
+        
+        
+        session.commit() 
+
+        
 
     def get_all_transactions(self):
         with self.Session() as session:

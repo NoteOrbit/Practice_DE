@@ -32,4 +32,3 @@ def set_date_format(df, date_format='%Y-%m-%d'):
     return df
 
 
-
