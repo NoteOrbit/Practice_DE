@@ -22,11 +22,7 @@
         "allow-credentials": false
       },
       "authentication": {
-        "provider": "AzureAD",
-        "jwt": {
-          "audience": "d07593a2-ac0e-4ec2-91d4-45385a5313dd",
-          "issuer": "https://login.microsoftonline.com/78332eda-48c1-4f4f-a4de-602e6263876d/v2.0"
-        }
+        "provider": "StaticWebApps"
       },
       "mode": "development"
     }
@@ -49,7 +45,7 @@
       },
       "permissions": [
         {
-          "role": "Transactions.Admin",
+          "role": "anonymous",
           "actions": [
             {
               "action": "*"

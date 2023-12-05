@@ -13,11 +13,10 @@ class EmployeeRepository:
 
     def create_transaction(self, args):
         new_transaction = Employee(**args)
+        print(new_transaction)
         with self.Session() as session:
             session.add(new_transaction)
-        
-        
-        session.commit() 
+            session.commit() 
 
         
 

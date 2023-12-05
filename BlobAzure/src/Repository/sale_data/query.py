@@ -16,8 +16,7 @@ class TransactionRepository:
         print(new_transaction)
         with self.Session() as session:
             session.add(new_transaction)
-            
-        session.commit()
+            session.commit()
         
     def get_all_transactions(self):
         with self.Session() as session:

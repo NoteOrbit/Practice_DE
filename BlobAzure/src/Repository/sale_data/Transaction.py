@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String ,Date,Column,Sequence
+from sqlalchemy import Integer, String ,Date,Column,Sequence 
 from sqlalchemy.ext.declarative import declarative_base
 
 
@@ -22,9 +22,9 @@ class Transaction(Base):
         Transaction_Date (datetime.date): Date of the transaction.
         Total_price (int): Total price for the transaction.
     """
-    seq = Sequence('transactions_id_seq')
+    seq = Sequence('transactions_id_seq',start=1)
     __tablename__ = "transactions"
-    Transaction_ID = Column(Integer,seq,server_default=seq.next_value(),primary_key=True,autoincrement=True)
+    Transaction_ID = Column(Integer,seq, primary_key=True,server_default=seq.next_value(),autoincrement=True)
     Customer_ID = Column(Integer)
     Product_ID = Column(Integer)
     Product_Category = Column(String(50), nullable=False)

@@ -19,9 +19,9 @@ class Employee(Base):
         salary (int): Salary of the employee.
 
     """
-    seq = Sequence('employees_id_seq')
+    seq = Sequence('employees_id_seq',start=1)
     __tablename__ = "employees"
-    employee_id = Column(Integer,seq,server_default=seq.next_value() ,primary_key=True, autoincrement=True)
+    employee_id = Column(Integer, seq, primary_key=True,server_default=seq.next_value(),autoincrement=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     job_title = Column(String(50), nullable=False)

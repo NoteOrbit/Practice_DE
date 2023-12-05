@@ -9,11 +9,11 @@ load_dotenv()
 
 def init_db():
     try:
-        postgres_host = os.getenv('POSTGRES_HOST')
-        postgres_port = os.getenv('POSTGRES_PORT')
-        postgres_db = os.getenv('POSTGRES_DB')
-        postgres_user = os.getenv('POSTGRES_USER')
-        postgres_password = os.getenv('POSTGRES_PASSWORD')
+        postgres_host = os.getenv('PGHOST')
+        postgres_port = os.getenv('PGPORT')
+        postgres_db = os.getenv('PGDATABASE')
+        postgres_user = os.getenv('PGUSER')
+        postgres_password = os.getenv('PGPASSWORD')
 
         db_url = f"postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}"
 

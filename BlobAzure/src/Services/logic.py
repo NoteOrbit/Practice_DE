@@ -19,16 +19,18 @@ class ETLService:
                     df = create_dataframe(item['file_data'], item['tag'])
                     df2 = df.copy()
                     df2['Total_price'] = df2['Sales_Amount']
+                    df2 = df2.iloc[:, 1:]
                     # show_dataframe(item['tag'], item['file_name'], df2) 
                     
             
                     transactions = df2.to_dict(orient='records')
-                    # print(transactions)
+                    print(transactions)
                     for transaction_data in transactions:
                         transaction_repository.create_transaction(transaction_data)
 
                 else:
                     df = create_dataframe(item['file_data'], item['tag'])
+                    df = df.iloc[:, 1:]
                     # show_dataframe(item['tag'], item['file_name'], df)
                     transactions = df.to_dict(orient='records')
                     for transaction_data in transactions:
