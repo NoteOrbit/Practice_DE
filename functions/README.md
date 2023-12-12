@@ -1,4 +1,9 @@
-## Function: Find_Missing
+##  Azure Functions
+
+### Objective
+
+Find missing data from real time given conditions.
+
 
 ### Description
 This function is the main entry point for the Azure Function App. It processes an HTTP request, retrieves the 'table_times' parameter from the request, and calls the `logic` function to process the data. The results are returned as an HTTP response.
@@ -94,6 +99,24 @@ Content-Type: application/json
 This project consists of several Python scripts that work together to perform a series of tasks. Below is a brief description of each script's role in the project.
 
 
+## functions_app.py
+
+### main(req: func.HttpRequest) -> func.HttpResponse
+
+This function is the main entry point for the application. It is triggered by an HTTP request and returns an HTTP response.
+
+The function first retrieves the `table_times` parameter from the request. If the parameter is not found in the request parameters, it tries to retrieve it from the request body.
+
+If the `table_times` parameter is found, the function creates a database connection and records the start time. It then calls the `logic` function from the `process` module, passing the `table_times` parameter and the database connection. The `logic` function processes the data and returns a result.
+
+The function then records the end time and calculates the runtime by subtracting the start time from the end time. It logs the result and closes the database connection.
+
+Finally, the function adds the runtime to the result and returns it as a JSON-formatted HTTP response.
+
+If the `table_times` parameter is not found in either the request parameters or the request body, the function does not perform any processing and does not return a response.
+
+
+
 ## process.py
 
 ### calculate_missing_timestamps(rows, frequency)
@@ -113,7 +136,6 @@ This function processes the data for a set of tables. It takes two parameters:
 
 The function initializes an empty dictionary `result` to store the results.
 
-The function's implementation is not shown in the provided excerpt, so further details cannot be provided.
 ## db.py
 
 ### create_db_connection()
