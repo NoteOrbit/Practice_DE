@@ -1,0 +1,19 @@
+{
+  "masterKey": {
+    "name": "master",
+    "value": "CfDJ8AAAAAAAAAAAAAAAAAAAAABJI4z51j0kF_Rjyl5p0b9UbZHkzKTNWBc94GbKFdPKx2BOW6dmkPco0MLabu1mjYARePICyHPvbhgCD-08VCp0iS2Dk1ukUs3IOSqpRRAuA1rw0YXqE3lBltb1yA7yMeFrzDIvor7xkxAK2aNzSEHfkt5OFvh_jkx7t_1EnMwY6w",
+    "encrypted": true
+  },
+  "functionKeys": [
+    {
+      "name": "default",
+      "value": "CfDJ8AAAAAAAAAAAAAAAAAAAAAAOClQDDhNqrjpcOnutVWgIT-bVyYGGFsiZJ2vGyEqRcsypfMHKi8N8e9Q9i9B69cbtHWPln5aUh5RxDhRgCLe25ny2_tE4qKxWf9qY6ObCVfGRjpTE2BcqmaqHwEKlFSA8QiLZkb0KS_p2LnfheELem_D7IGFiRJ4v-sccakBpsg",
+      "encrypted": true
+    }
+  ],
+  "systemKeys": [],
+  "hostName": "1missing.azurewebsites.net",
+  "instanceId": "0000000000000000000000001BF3FB02",
+  "source": "runtime",
+  "decryptionKeyId": "AzureWebEncryptionKey=p5SazgVyEvwuH20MfISw0Ez1sk4ILakpjVxbUHHUu6Q=;"
+}

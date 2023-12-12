@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.9.7/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "postgresql",
+    "connection-string": "Server=testingdata.postgres.database.azure.com;Database=intern;Port=5432;User Id=azure_db_testing;Password=Noch8539;",
+    "options": {}
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/rest",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "production"
+    }
+  },
+  "entities": {
+    "Transaction": {
+      "source": {
+        "object": "transactions",
+        "type":"view"
+
+      },
+      
+      "exclude-fields": ["_sa_instance_state"],
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    },
+    "Employees": {
+      "source": "employees",
+      "exclude-fields": ["_sa_instance_state"],
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "authenticated"
+        }
+      ]
+    }
+  }
+}

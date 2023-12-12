@@ -43,3 +43,25 @@ class AzureBlob:
         except Exception as e:
             print(f"Error listing blobs: {str(e)}")
             return []
+
+
+    def copy_blob(self, blob_name, source_blob_url):
+        try:
+            copied_blob = self.blob_service_client.get_blob_client(self.container_name, blob_name)
+            copied_blob.start_copy_from_url(source_blob_url)
+            return True
+        except Exception as e:
+            print(f"Error copying blob '{blob_name}': {str(e)}")
+            return False
+        
+
+    def delete_blob(self, blob_name):
+        try:
+            self.container_client.delete_blob(blob_name)
+            return True
+        except Exception as e:
+            print(f"Error deleting blob '{blob_name}': {str(e)}")
+            return False
+        
+    
+    

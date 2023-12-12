@@ -1,0 +1,62 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.9.7/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "postgresql",
+    "connection-string": "@env('Server2')",
+    "options": {}
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "AzureAD",
+        "jwt": {
+          "audience": "d07593a2-ac0e-4ec2-91d4-45385a5313dd",
+          "issuer": "https://login.microsoftonline.com/78332eda-48c1-4f4f-a4de-602e6263876d/v2.0"
+        }
+      },
+      "mode": "development"
+    }
+  },
+  "entities": {
+    "price": {
+      "source": {
+        "object": "DBO.PRICE",
+        "type": "view"
+      },
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "price",
+          "plural": "prices"
+        }
+      },
+      "rest": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "Transactions.Admin",
+          "actions": [
+            {
+              "action": "*"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
