@@ -89,3 +89,43 @@ Content-Type: application/json
     }
 }
 ```
+# Project Components
+
+This project consists of several Python scripts that work together to perform a series of tasks. Below is a brief description of each script's role in the project.
+
+
+## process.py
+
+### calculate_missing_timestamps(rows, frequency)
+
+This function calculates the missing timestamps in the data. It takes two parameters:
+
+- `rows`: The rows of data returned from the database. Each row is expected to contain a timestamp.
+- `frequency`: The frequency at which the data should be sampled. This can be '5min', '30min', or 'H' (hourly).
+
+
+### logic(table_times, conn)
+
+This function processes the data for a set of tables. It takes two parameters:
+
+- `table_times`: A dictionary mapping table names to a pair of a column name and a frequency.
+- `conn`: The database connection object.
+
+The function initializes an empty dictionary `result` to store the results.
+
+The function's implementation is not shown in the provided excerpt, so further details cannot be provided.
+## db.py
+
+### create_db_connection()
+
+This function establishes a connection to the PostgreSQL database. It reads the database configuration (database name, user, password, host, and port) from environment variables, which are loaded using the `dotenv` library. If the connection is successful, it prints a success message and returns the connection object. If an error occurs during the connection, it prints the error message.
+
+### execute(table_name, column, start_timestamp, end_timestamp, conn)
+
+This function executes a SQL query on the database. It takes five parameters:
+
+- `table_name`: The name of the table in the database to query.
+- `column`: The name of the column in the table to select.
+- `start_timestamp`: The start of the timestamp range for the query.
+- `end_timestamp`: The end of the timestamp range for the query.
+- `conn`: The database connection object.
